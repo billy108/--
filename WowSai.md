@@ -181,3 +181,13 @@ AndroidManifest.xml
 结束于 8/15/2016 6:12:04 PM 
 
 ----------
+
+Fragment.setArguments(Bundle bundle)这种方式来传递参数
+
+**ExpandableListView组件**
+
+> ExpandableListView组件是android中一个比较常用的组件，当点击一个父item的时候可以将它的子item显示出来，像手机QQ中的好友列表就是实现的类型效果。
+> 
+> 使用ExpandableListView组件的关键就是设置它的adapter，这个adapter必须继承BaseExpandbaleListAdapter类，所以实现运用ExpandableListView的核心就是学会继承这个BaseExpanableListAdapter类。
+
+
