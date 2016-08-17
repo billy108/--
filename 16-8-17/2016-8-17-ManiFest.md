@@ -81,7 +81,7 @@ AndroidManifest.xml 是每个android程序中必须的文件。它位于整个�
 
  上面就是整个am(androidManifest).xml的结构，下面以外向内开始阐述～～
 
-**1、第一层(<Manifest>):(属性)**
+**1、第一层(Manifest):(属性)**
 
     <manifest  xmlns:android="http://schemas.android.com/apk/res/android"
       package="com.woody.test"
@@ -238,7 +238,7 @@ Android系统是否能够实例化该应用程序的组件，如果为true，每
 
 是一个资源的风格，它定义了一个默认的主题风格给所有的activity,当然也可以在自己的theme里面去设置它，有点类似style。
 
-**3、第三层(<Activity>):属性**
+**3、第三层(Activity):属性**
 
     <activity android:allowTaskReparenting=["true" | "false"]
           android:alwaysRetainTaskState=["true" | "false"]
@@ -366,7 +366,7 @@ activity主窗口与软键盘的交互模式，可以用来避免输入法面板
 
 【I】adjustPan：当前窗口的内容将自动移动以便当前焦点从不被键盘覆盖和用户能总是看到输入内容的部分
 
-**4、第四层(<intent-filter>)**
+**4、第四层(intent-filter)**
 
 结构图：
 
@@ -425,8 +425,8 @@ scheme的值一般为"http"，host为包名，port为端口号，path为具体�
 【3】而pathPattern和PathPrefix主要是为了格式化path所使用的
 
 **5、第四层<meta-data>**
-
-<meta-data android:name="string"
+    
+    <meta-data android:name="string"
            android:resource="resource specification"
            android:value="string"/>
 
@@ -453,7 +453,7 @@ android:value(解释：指定给这一项的值。可以作为值来指定的数
     <meta-data/>
     </activity-alias>
     
-    <activity-alias>是为activity创建快捷方式的，如下实例：
+<activity-alias>是为activity创建快捷方式的，如下实例：
     
     
     <activity android:name=".shortcut">
@@ -483,7 +483,7 @@ android:value(解释：指定给这一项的值。可以作为值来指定的数
 android:label是指快捷方式的名称，而快捷方式的图标默认是给定的application图标
 
 
-**7、第三层<service>**
+**7、第三层service**
 
 【1】service与activity同级，与activity不同的是，它不能自己启动的，运行在后台的程序，如果我们退出应用时，Service进程并没有结束，它仍然在后台运行。比如听音乐，网络下载数据等，都是由service运行的
 
@@ -513,7 +513,7 @@ Service后端的数据最终还是要呈现在前端Activity之上的，因为�
 
 service标签内的属性之前已有描述，在此不重复了～
 
-**8、第三层<receiver>**
+**8、第三层receiver**
 
 receiver的属性与service一样，这里就不显示了
 

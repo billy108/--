@@ -66,8 +66,8 @@ Intent不仅可用于应用程序之间，也可用于应用程序内部的activ
     4 //setClass函数的第二个参数是一个Class对象，在当前场景下，应该传入需要被启动的Activity类的class对象
     5 intent.setClass(MainActivity.this, SecondActivity.class);
     6 startActivity(intent);
-    复制代码
-    再简单一点，可以这样写：（当然，也是最常见的写法）
+    
+再简单一点，可以这样写：（当然，也是最常见的写法）
     
     1 Intent intent = new Intent(MainActivity.this,SecondActivity.class);
     2 startActivity(intent); 
