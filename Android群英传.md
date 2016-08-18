@@ -61,4 +61,80 @@
 
 ----------
 
+## 第10章 Android性能优化##
+一.布局优化
+
+1、UI渲染机制：画面流畅，保持大概60帧/秒，相当于16ms/帧。
+
+2、避免OverDraw。
+
+3、优化布局层次：降低View树的高度，不宜超过10层。
+
+4、避免嵌套过多无用布局：嵌套很多布局会使View树过高。
+
+1）使用<include>标签重用Layout。比如TopBar，BottomBar
+
+2）使用<ViewStub>实现View的延迟加载，不可视，大小为0.比如布局在特定的情况下才会显示出来。
+
+显示方法：
+mViewStub.setVisibility(View.VISIBLE);
+
+View v = mViewStub.inflate();返回View
+
+提问：<ViewStub>与View.GONE的区别？
+<ViewStub>只会在显示的时候渲染布局，而View.GONE在初始化的时候已经添加到布局树了。
+
+5、Hierarchy Viewer
+
+## 二、内存优化（堆内存管理） ##
+1.内存：手机RAM，包括寄存器、栈、堆、静态存储空间和常量池。
+
+寄存器：最快的存储场所，程序无法控制。
+栈：存放基本类型的数据和对象引用，当作用域结束后，内存被分给新的变量。
+堆：存放new创建的对象和数组，由GC管理。
+静态存储空间：固定的区域来管理特殊的数据变量，如静态数据变量。
+常量池：每个被装载的类型所用到常量的一个有序集合。
+
+堆内存大小：
+![](http://i.imgur.com/s7kOtuy.png)
+
+2.内存优化实例
+1）Bitmap优化
+
+--使用适当分辨率和大小的图片
+--及时回收内存
+--使用图片缓存（通过内存缓存LruCache和硬盘缓存DiskLruCache）
+
+2）代码优化
+--对常量使用static修饰符
+--使用静态方法，比普通方法提高15%左右的速度
+--减少不必要的成员变量，通过Lint工具可以检测。
+--减少不必要的对象，避免频繁创建短作用域的变量
+--尽量不用枚举，少用迭代器
+--对Cursor、Recvice、Sensor、File等对象，要非常注意创建、回收和注册、解注册
+--避免使用IOC框架
+--使用RenderScript、OpenGL来进行非常复杂的绘图操作
+--使用SurfaceView来替代View进行大量、频繁的绘图操作
+--尽量使用视图缓存，而不是每次都执行inflate（）方法解析视图
+
+## 三.Lint工具 ##
+## 四、Memory Monitor工具 ##
+## 五、TraceView工具 ##
+用于分析TraceView日志
+
+1.通过代码生成精确范围的TraceView日志。
+用Debug.startMethodTracing()和Debug.stopMethodTracing()来包围要监听的代码块，日志将会保存在“/sdcard/dmtrace.trace”目录下。
+
+2.通过Android Device Monitor生成TraceView日志
+
+## 六、使用MAT工具 ##
+1、判断内存泄漏的小技巧：不停的点击“Cause GC”时，如果“data object”一栏中的“Total Size”有明显的变化，就代表有可能存在内存泄漏。	
+
+2、点击“Dump HPROF File”,生成.hprof文件，保存之。
+使用hprof-conv工具进行转换
+
+
+
+
+
 
