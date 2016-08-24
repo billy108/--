@@ -190,4 +190,33 @@ Fragment.setArguments(Bundle bundle)这种方式来传递参数
 > 
 > 使用ExpandableListView组件的关键就是设置它的adapter，这个adapter必须继承BaseExpandbaleListAdapter类，所以实现运用ExpandableListView的核心就是学会继承这个BaseExpanableListAdapter类。
 
+## 再按一次退出程序 ##
+	 /**
+     * 再按一次退出程序
+     */
 
+    private long exitTime = 0;
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN){
+            if((System.currentTimeMillis()-exitTime) > 2000){
+                Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+            } else {
+                finish();
+                System.exit(0);
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+## [Google自己的下拉刷新组件SwipeRefreshLayout](http://www.cnblogs.com/JinyaoLi/p/3852424.html) ##
+
+
+下次开始：FindHomeFragment
+
+结束于 8/24/2016 3:05:44 PM 
+
+
+----------
