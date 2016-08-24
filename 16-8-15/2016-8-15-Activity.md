@@ -2,7 +2,7 @@
 ## 1.概念 ##
 简单的说：Activity就是布满整个窗口或者悬浮于其他窗口上的交互界面。在一个应用程序中通常由多个Activity构成，都会在Manifest.xml中指定一个主的Activity，如下设置
 
-    <actionandroid:name="Android.intent.action.MAIN" />
+    <action android:name="Android.intent.action.MAIN" />
 
 当程序第一次运行时用户就会看这个Activity，这个Activity可以通过启动其他的Activity进行相关操作。当启动其他的Activity时这个当前的这个Activity将会停止，新的Activity将会压入栈中，同时获取用户焦点，这时就可在这个Activity上操作了。都知道栈是先进后出的原则，那么当用户按Back键时，当前的这个Activity销毁，前一个Activity重新恢复
 ## 2.生命周期 ##
