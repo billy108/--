@@ -487,7 +487,8 @@ ViewGroup.java
 
 现总结如下：
 
-Android中事件传递按照从上到下进行层级传递，**事件处理从Activity开始到ViewGroup再到View**。 
-事件传递方法包括dispatchTouchEvent、onTouchEvent、onInterceptTouchEvent，其中前两个是View和ViewGroup都有的，最后一个是只有ViewGroup才有的方法。这三个方法的作用分别是负责事件分发、事件处理、事件拦截。 
+- Android中事件传递按照从上到下进行层级传递，事件处理从Activity开始到ViewGroup再到View。
+ 
+- 事件传递方法包括dispatchTouchEvent、onTouchEvent、onInterceptTouchEvent，其中前两个是View和ViewGroup都有的，最后一个是只有ViewGroup才有的方法。这三个方法的作用分别是负责事件分发、事件处理、事件拦截。 
 
-onTouch事件要先于onClick事件执行，onTouch在事件分发方法dispatchTouchEvent中调用，而onClick在事件处理方法onTouchEvent中被调用，onTouchEvent要后于dispatchTouchEvent方法的调用。
+- onTouch事件要先于onClick事件执行，onTouch在事件分发方法dispatchTouchEvent中调用，而onClick在事件处理方法onTouchEvent中被调用，onTouchEvent要后于dispatchTouchEvent方法的调用。
