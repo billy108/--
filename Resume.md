@@ -45,7 +45,7 @@
 	- 应用在 5秒 内未响应用户的输入事件（如按键或者触摸） 
 	- BroadcastReceiver未在 10秒 内完成相关的处理
 
-**如何避免：
+**如何避免：**
 
 - 使用AsyncTask处理耗时IO操作。
 - 使用Thread或者HandlerThread时，调用Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND)设置优先级，否则仍然会降低程序响应，因为默认Thread的优先级和主线程相同。
