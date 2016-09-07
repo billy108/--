@@ -214,9 +214,34 @@ Fragment.setArguments(Bundle bundle)这种方式来传递参数
 ## [Google自己的下拉刷新组件SwipeRefreshLayout](http://www.cnblogs.com/JinyaoLi/p/3852424.html) ##
 
 
-下次开始：FindHomeFragment
+**9/7/2016**
 
-结束于 8/24/2016 3:05:44 PM 
+    expandableListView.setGroupIndicator(null);//去掉控件的箭头
+	ViewPager.setOffscreenPageLimit(0);//0表示不缓存
 
+ViewPager可以设置setOnPageChangeListener监听，重写onPageScrolled（）方法，就可以控制Tab条的位移
 
-----------
+	@Override
+    public void onPageScrolled(int i, float v, int i1) {
+       scllorTabView_title_underline.setOffset(i, v);
+    }
+
+ViewPager的自动切换
+
+	private Handler mHandler = new Handler() {
+        public void handleMessage(android.os.Message msg) {
+            switch (msg.what) {
+                case 1:
+                    if (dots != null) {
+                        int currentItem = viewPager.getCurrentItem();
+                        int toItem = (currentItem + 1) % viewPagerList.size();
+                        viewPager.setCurrentItem(toItem, true);
+                    }
+                    // 每2秒钟发送一个message，用于切换viewPager中的图片
+                    this.sendEmptyMessageDelayed(1, 2000);
+            }
+        }
+    };
+
+类似git加载动画（比如刚打开主页时）可以用多个png连接而成。
+[Android 用Animation-list实现逐帧动画](http://blog.csdn.net/aminfo/article/details/7847761)
